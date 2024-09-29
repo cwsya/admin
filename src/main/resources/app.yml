@@ -1,0 +1,13 @@
+server.port: 8080
+
+solon.app:
+  name: 'demo-app'
+  group: 'demo'
+
+solon.dataSources:
+  db!:
+    class: "com.zaxxer.hikari.HikariDataSource"
+    jdbcUrl: jdbc:mysql://192.168.10.202:3306/sk_client
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1qaz@WSXlh
