@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mapper namespace="plus.cws.admin.module.sys.auth.mapper.AuthMapper">
+    <sql id="getUserList" return="DataList" :note="获取用户信息">
+        SELECT * FROM sys_user
+    </sql>
+</mapper>
