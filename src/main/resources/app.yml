@@ -11,6 +11,7 @@ solon.dataSources:
     driverClassName: org.postgresql.Driver
     username: cws
     password: admin-cws
+    isSelectItemEmptyAsNull:
 
 
 ############## Sa-Token 配置 (文档: https://sa-token.cc) ##############

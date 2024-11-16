@@ -1,60 +1,65 @@
 package plus.cws.admin.module.sys.auth.controller;
 
 
-import cn.dev33.satoken.stp.StpUtil;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
-import org.noear.wood.BaseMapper;
-import org.noear.wood.DataList;
-import org.noear.wood.annotation.Db;
-import plus.cws.admin.module.sys.auth.entity.SysUser;
-import plus.cws.admin.module.sys.auth.mapper.AuthMapper;
-import plus.cws.admin.module.sys.entity.R;
-
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
+import plus.cws.admin.module.common.entity.R;
+import plus.cws.admin.module.common.entity.dao.SysUser;
+import plus.cws.admin.module.sys.auth.service.IAuthService;
 
 @Mapping("/auth")
 @Controller
 public class AuthController {
 
+    @Inject
+    private IAuthService authService;
+
 
     @Post
     @Mapping("/login")
-    public R<?> login(String username, String password) {
+    public R<?> login(SysUser user) {
 
-        if("admin".equals(username) && "admin".equals(password)) {
-            StpUtil.login(1);
-            return R.ok(StpUtil.getTokenInfo());
-        }
-        return R.error();
+        String token = authService.loginByPassword(user);
+
+        return R.ok(token);
     }
 
-    @Post
-    @Mapping("/isLogin")
-    public R<?> isLogin() {
-
-        return R.ok(StpUtil.isLogin());
-    }
-
-    @Db
-    private AuthMapper authMapper;
-
-    @Db
-    private BaseMapper<SysUser> sysUserBaseMapper;
-
-    @Post
-    @Mapping("/test")
-    public R<?> test(String userName) {
-
-        List<SysUser> sysUsers = sysUserBaseMapper.selectList(mq->mq
-                .where("1=1")
-                .andEq(SysUser::getUserName,userName)
-        );
-        return R.ok(sysUsers);
-    }
+//    @Post
+//    @Mapping("/isLogin")
+//    public R<?> isLogin() {
+//        return R.ok(StpUtil.isLogin());
+//    }
+//
+//    @Db
+//    private AuthMapper authMapper;
+//
+//    @Db
+//    private BaseMapper<SysUser> sysUserBaseMapper;
+//
+//    @Inject
+//    private IVpnService vpnService;
+//
+//    @Post
+//    @Mapping("/test")
+//    public R<?> test(String userName,String password) {
+//        //Solon.context().getBeansMapOfType(IVpnService.class)
+//        System.out.println(vpnService.getVpnUrl());
+//        SysUser sysUsers = sysUserBaseMapper.selectItem(mq->mq
+//                .whereTrue()
+//                .andEq(SysUser::getUserName,userName)
+//                .andEq(SysUser::getPassword,password)
+//                .limit(1)
+//        );
+//
+//        if (ObjUtil.isNotEmpty(sysUsers)) {
+//            StpUtil.login(sysUsers.getId());
+//            return R.ok(StpUtil.getTokenInfo());
+//        }
+//
+//
+//        return R.error(ResultCodeEnum.ERROR_LOGIN);
+//    }
 
 }

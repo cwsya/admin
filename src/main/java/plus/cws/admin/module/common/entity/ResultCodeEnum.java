@@ -1,4 +1,4 @@
-package plus.cws.admin.module.sys.entity;
+package plus.cws.admin.module.common.entity;
 
 /**
  * 状态码
@@ -6,9 +6,13 @@ package plus.cws.admin.module.sys.entity;
  */
 public enum ResultCodeEnum {
  
-    ok(200, "成功"),
+    OK(200, "成功"),
 
-    error(500, "未知错误");
+    ERROR(500, "未知错误"),
+
+    ERROR_LOGIN(510, "登录失败"),
+
+    ERROR_AUTH(511, "您无权访问");
 
  
     private final Integer code;
