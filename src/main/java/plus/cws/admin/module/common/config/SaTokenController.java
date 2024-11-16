@@ -25,7 +25,9 @@ public class SaTokenController {
                             .match("/**")
                             .notMatch(
                                     "/auth/test",
-                                    "/auth/login"
+                                    "/auth/login",
+                                    "/auth/isLogin"
+
                             )
                             .check(r -> StpUtil.checkLogin());
                 })

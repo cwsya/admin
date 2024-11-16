@@ -2,10 +2,11 @@ package plus.cws.admin;
 
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
-import org.noear.wood.BaseMapper;
 import org.noear.wood.DataList;
 import org.noear.wood.DbContext;
 import org.noear.wood.annotation.Db;
+import plus.cws.admin.module.common.entity.R;
+
 import java.sql.SQLException;
 
 @Controller
@@ -16,13 +17,10 @@ public class DemoController {
 
 
     @Mapping("/hello")
-    public String hello(String name) throws SQLException {
+    public R<?> hello(String name) throws SQLException {
         DataList dataList = db.sql("select * from sys_user").getDataList();
         System.out.println(dataList.getMapList().toString());
-
-
-
-        return String.format("Hello %s!", name);
+        return R.ok(dataList);
     }
 
 //    @Db

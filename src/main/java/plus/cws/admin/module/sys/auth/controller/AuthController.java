@@ -1,6 +1,7 @@
 package plus.cws.admin.module.sys.auth.controller;
 
 
+import cn.dev33.satoken.stp.StpUtil;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
@@ -26,11 +27,11 @@ public class AuthController {
         return R.ok(token);
     }
 
-//    @Post
-//    @Mapping("/isLogin")
-//    public R<?> isLogin() {
-//        return R.ok(StpUtil.isLogin());
-//    }
+    @Post
+    @Mapping("/isLogin")
+    public R<?> isLogin() {
+        return R.ok(StpUtil.isLogin());
+    }
 //
 //    @Db
 //    private AuthMapper authMapper;
