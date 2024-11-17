@@ -1,4 +1,4 @@
-package plus.cws.admin.module.common.entity.dao;
+package plus.cws.admin.common.entity.dao;
 
 import lombok.Data;
 import org.noear.wood.annotation.PrimaryKey;

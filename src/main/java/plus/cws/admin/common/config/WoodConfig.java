@@ -1,4 +1,4 @@
-package plus.cws.admin.module.common.config;
+package plus.cws.admin.common.config;
 
 import org.noear.solon.annotation.Component;
 import org.noear.solon.core.event.AppLoadEndEvent;

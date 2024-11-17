@@ -1,11 +1,11 @@
-package plus.cws.admin.module.common.exception;
+package plus.cws.admin.common.exception;
 
 import org.noear.solon.annotation.Component;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Filter;
 import org.noear.solon.core.handle.FilterChain;
-import plus.cws.admin.module.common.entity.R;
-import plus.cws.admin.module.common.entity.ResultCodeEnum;
+import plus.cws.admin.common.entity.R;
+import plus.cws.admin.common.entity.ResultCodeEnum;
 
 @Component
 public class ExceptionHandleFilter implements Filter {

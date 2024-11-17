@@ -1,4 +1,4 @@
-package plus.cws.admin.module.common.entity;
+package plus.cws.admin.common.entity;
 
 import lombok.Data;
 

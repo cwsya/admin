@@ -1,13 +1,13 @@
-package plus.cws.admin.module.sys.auth.service.impl;
+package plus.cws.admin.sys.auth.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.ObjUtil;
 import org.noear.solon.annotation.Component;
 import org.noear.wood.BaseMapper;
 import org.noear.wood.annotation.Db;
-import plus.cws.admin.module.common.entity.dao.SysUser;
-import plus.cws.admin.module.common.exception.LoginException;
-import plus.cws.admin.module.sys.auth.service.IAuthService;
+import plus.cws.admin.common.entity.dao.SysUser;
+import plus.cws.admin.common.exception.LoginException;
+import plus.cws.admin.sys.auth.service.IAuthService;
 
 @Component
 public class AuthServiceImpl implements IAuthService {

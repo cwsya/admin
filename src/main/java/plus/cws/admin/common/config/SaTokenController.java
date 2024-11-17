@@ -1,4 +1,4 @@
-package plus.cws.admin.module.common.config;
+package plus.cws.admin.common.config;
 
 
 import cn.dev33.satoken.router.SaRouter;
@@ -7,8 +7,8 @@ import cn.dev33.satoken.stp.StpUtil;
 import org.noear.solon.annotation.Bean;
 import org.noear.solon.annotation.Configuration;
 import org.noear.solon.core.handle.Filter;
-import plus.cws.admin.module.common.entity.R;
-import plus.cws.admin.module.common.entity.ResultCodeEnum;
+import plus.cws.admin.common.entity.R;
+import plus.cws.admin.common.entity.ResultCodeEnum;
 
 /**
  * SaToken配置类 配置那些路径需要鉴权

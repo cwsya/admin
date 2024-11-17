@@ -1,4 +1,4 @@
-package plus.cws.admin.module.sys.auth.controller;
+package plus.cws.admin.sys.auth.controller;
 
 
 import cn.dev33.satoken.stp.StpUtil;
@@ -6,9 +6,9 @@ import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
-import plus.cws.admin.module.common.entity.R;
-import plus.cws.admin.module.common.entity.dao.SysUser;
-import plus.cws.admin.module.sys.auth.service.IAuthService;
+import plus.cws.admin.common.entity.R;
+import plus.cws.admin.common.entity.dao.SysUser;
+import plus.cws.admin.sys.auth.service.IAuthService;
 
 @Mapping("/auth")
 @Controller

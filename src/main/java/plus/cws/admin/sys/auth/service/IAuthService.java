@@ -1,6 +1,6 @@
-package plus.cws.admin.module.sys.auth.service;
+package plus.cws.admin.sys.auth.service;
 
-import plus.cws.admin.module.common.entity.dao.SysUser;
+import plus.cws.admin.common.entity.dao.SysUser;
 
 public interface IAuthService {
 

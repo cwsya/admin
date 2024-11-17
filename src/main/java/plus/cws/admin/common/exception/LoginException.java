@@ -1,4 +1,4 @@
-package plus.cws.admin.module.common.exception;
+package plus.cws.admin.common.exception;
 
 public class LoginException extends RuntimeException{
     private String message;

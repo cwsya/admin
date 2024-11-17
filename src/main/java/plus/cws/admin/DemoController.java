@@ -5,7 +5,7 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.wood.DataList;
 import org.noear.wood.DbContext;
 import org.noear.wood.annotation.Db;
-import plus.cws.admin.module.common.entity.R;
+import plus.cws.admin.common.entity.R;
 
 import java.sql.SQLException;
 

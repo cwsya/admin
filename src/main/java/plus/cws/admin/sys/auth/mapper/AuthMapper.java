@@ -1,4 +1,4 @@
-package plus.cws.admin.module.sys.auth.mapper;
+package plus.cws.admin.sys.auth.mapper;
 
 
 import org.noear.wood.DataList;
