@@ -17,14 +17,11 @@ public class App {
 
             if (Solon.cfg().isDebugMode() || Solon.cfg().isFilesMode()) {
                 //执行后打印sql
-                WoodConfig.onExecuteAft(cmd -> {
-                    System.out.println("[Wood]" + cmd.text + "\r\n" + cmd.paramMap());
-                });
+                WoodConfig.onExecuteAft(cmd -> System.out.println("[Wood]" + cmd.text + "\r\n" + cmd.paramMap()));
             }
         });
 
         System.out.println("启动成功!-------------------");
-
 
     }
 }
