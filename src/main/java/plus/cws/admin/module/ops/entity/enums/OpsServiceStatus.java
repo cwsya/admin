@@ -7,9 +7,9 @@ import lombok.Getter;
  */
 @Getter
 public enum OpsServiceStatus {
-    EX("0","未知错误"),
-    START("1","运行中"),
-    STOP("2","已停止");
+    EX("error","未知错误"),
+    START("start","运行中"),
+    STOP("stop","已停止");
 
 
     private final String statusCode;
