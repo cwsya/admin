@@ -21,8 +21,7 @@ public class NacosServiceImpl implements INacosService {
     public LoginRes getToken(String url, String username, String password) {
         String post = HttpUtil.post(url + "/nacos/v1/auth/users/login", "username=" + username + "&password=" + password);
         try {
-            LoginRes bean = JSONUtil.parseObj(post).toBean(LoginRes.class);
-            return bean;
+            return JSONUtil.parseObj(post).toBean(LoginRes.class);
         }catch (Exception e) {
             throw new RuntimeException(post);
         }
@@ -30,13 +29,12 @@ public class NacosServiceImpl implements INacosService {
 
     @Override
     public List<NameSpacesRes> getNameSpaces(String url, String token) {
-        String data = HttpUtil.get(url + "/nacos/v1/console/namespaces", new HashMap<String, Object>() {{
+        String data = HttpUtil.get(url + "/nacos/v1/console/namespaces", new HashMap<>() {{
             put("accessToken", token);
             put("namespaceId", "");
         }});
         try {
-            List<NameSpacesRes> list = JSONUtil.parseObj(data).getJSONArray("data").toList(NameSpacesRes.class);
-            return list;
+            return JSONUtil.parseObj(data).getJSONArray("data").toList(NameSpacesRes.class);
         }catch (Exception e) {
             throw new RuntimeException(data);
         }
@@ -44,7 +42,7 @@ public class NacosServiceImpl implements INacosService {
 
     @Override
     public List<ConfigsRes> getConfigs(String url, String token, String tenant) {
-        String data = HttpUtil.get(url + "/nacos/v1/cs/configs", new HashMap<String, Object>() {{
+        String data = HttpUtil.get(url + "/nacos/v1/cs/configs", new HashMap<>() {{
             put("dataId", "");
             put("group", "");
             put("appName", "");
@@ -57,8 +55,7 @@ public class NacosServiceImpl implements INacosService {
             put("username", "nacos");
         }});
         try {
-            List<ConfigsRes> list = JSONUtil.parseObj(data).getJSONArray("pageItems").toList(ConfigsRes.class);
-            return list;
+            return JSONUtil.parseObj(data).getJSONArray("pageItems").toList(ConfigsRes.class);
         }catch (Exception e) {
             throw new RuntimeException(data);
         }

@@ -1,6 +1,7 @@
 package plus.cws.admin.module.nacos.controller;
 
 import cn.hutool.core.util.ObjUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@Slf4j
 @Mapping("/nacos")
 @Controller
 public class NacosController {
@@ -45,26 +47,26 @@ public class NacosController {
         LoginRes token = new LoginRes();
         try {
             token = nacosService.getToken(url, "nacos", "nacos");
-            System.out.println("nacos采集 登录: "+token);
+            log.info("nacos采集 登录: {}", token);
             nacosDataVo.setIsLogin(true);
             nacosDataVo.setLoginData(token);
         }catch (Exception e) {
             nacosDataVo.setIsLogin(false);
             nacosDataVo.setLoginDataErrorMsg(e.getMessage());
-            System.out.println("nacos采集 登录失败: "+e.getMessage());
+            log.error("nacos采集 登录失败: {}", e.getMessage());
         }
 
         List<NameSpacesRes> nameSpaces=new ArrayList<>();
 
         try {
             nameSpaces = nacosService.getNameSpaces(url, token.getAccessToken());
-            System.out.println("nacos采集 命名空间( "+nameSpaces.size()+" ): "+nameSpaces);
+            log.info("nacos采集 命名空间( {} ): {}", nameSpaces.size(), nameSpaces);
             nacosDataVo.setIsNameSpaces(true);
             nacosDataVo.setNameSpaces(nameSpaces);
         }catch (Exception e){
             nacosDataVo.setIsNameSpaces(false);
             nacosDataVo.setNameSpacesErrorMsg(e.getMessage());
-            System.out.println("nacos采集 获取命名空间失败: "+e.getMessage());
+            log.error("nacos采集 获取命名空间失败: {}", e.getMessage());
         }
 
 
@@ -74,11 +76,11 @@ public class NacosController {
                 List<ConfigsRes> configs = nacosService.getConfigs(url, token.getAccessToken(), nameSpace.getNamespace());
                 nameSpace.setConfigs(configs);
                 nameSpace.setIsConfigs(true);
-                System.out.println("nacos采集 配置: "+configs);
+                log.info("nacos采集 配置: "+configs);
             }catch (Exception e){
                 nameSpace.setIsConfigs(false);
                 nameSpace.setConfigsErrorMsg(e.getMessage());
-                System.out.println("nacos采集 获取配置失败: "+e.getMessage());
+                log.error("nacos采集 获取配置失败: {}", e.getMessage());
             }
         }
 
