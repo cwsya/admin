@@ -1,4 +1,4 @@
-package plus.cws.admin.module.nacos.entity;
+package plus.cws.admin.module.nacos.entity.res;
 
 import lombok.Data;
 

@@ -7,10 +7,10 @@ import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
 import plus.cws.admin.common.entity.R;
-import plus.cws.admin.module.nacos.entity.ConfigsRes;
-import plus.cws.admin.module.nacos.entity.LoginRes;
-import plus.cws.admin.module.nacos.entity.NacosDataVo;
-import plus.cws.admin.module.nacos.entity.NameSpacesRes;
+import plus.cws.admin.module.nacos.entity.res.ConfigsRes;
+import plus.cws.admin.module.nacos.entity.res.LoginRes;
+import plus.cws.admin.module.nacos.entity.vo.NacosDataVo;
+import plus.cws.admin.module.nacos.entity.res.NameSpacesRes;
 import plus.cws.admin.module.nacos.service.INacosService;
 
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 package plus.cws.admin.module.nacos.service;
 
 
-import plus.cws.admin.module.nacos.entity.ConfigsRes;
-import plus.cws.admin.module.nacos.entity.LoginRes;
-import plus.cws.admin.module.nacos.entity.NameSpacesRes;
+import plus.cws.admin.module.nacos.entity.res.ConfigsRes;
+import plus.cws.admin.module.nacos.entity.res.LoginRes;
+import plus.cws.admin.module.nacos.entity.res.NameSpacesRes;
 
 import java.util.List;
 
