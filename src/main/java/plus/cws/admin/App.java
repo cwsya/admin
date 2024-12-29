@@ -2,10 +2,12 @@ package plus.cws.admin;
 
 import org.noear.solon.Solon;
 import org.noear.solon.annotation.SolonMain;
+import org.noear.solon.scheduling.annotation.EnableScheduling;
 import org.noear.solon.web.cors.CrossFilter;
 import org.noear.wood.WoodConfig;
 
 @SolonMain
+@EnableScheduling
 public class App {
 
 

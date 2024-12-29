@@ -1,26 +1,27 @@
 package plus.cws.admin;
 
 import org.noear.solon.annotation.Controller;
+import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
-import org.noear.wood.DataList;
-import org.noear.wood.DbContext;
-import org.noear.wood.annotation.Db;
 import plus.cws.admin.common.entity.R;
+import plus.cws.admin.sys.cache.service.ICacheService;
 
 import java.sql.SQLException;
 
 @Controller
 public class DemoController {
 
-    @Db
-    DbContext db;
+    @Inject
+    private ICacheService cacheService;
 
 
     @Mapping("/hello")
-    public R<?> hello(String name) throws SQLException {
-        DataList dataList = db.sql("select * from sys_user").getDataList();
-        System.out.println(dataList.getMapList().toString());
-        return R.ok(dataList);
+    public R<?> hello(String name) throws SQLException, InterruptedException {
+        cacheService.put(name, "hello", 1000);
+        System.out.println(cacheService.get(name));
+        Thread.sleep(1500);
+        System.out.println(cacheService.get(name));
+        return R.ok();
     }
 
 //    @Db
