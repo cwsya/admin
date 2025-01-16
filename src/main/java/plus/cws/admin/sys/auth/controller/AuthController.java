@@ -8,6 +8,7 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
 import plus.cws.admin.common.entity.R;
 import plus.cws.admin.common.entity.dao.SysUser;
+import plus.cws.admin.sys.auth.entity.vo.SysUserVo;
 import plus.cws.admin.sys.auth.service.IAuthService;
 
 import java.util.HashMap;
@@ -40,11 +41,21 @@ public class AuthController {
     @Mapping("/info")
     public R<?> info() {
         SysUser info = authService.info(StpUtil.getLoginId().toString());
-        return R.ok(new SysUser(){{
-            setId(info.getId());
-            setUsername(info.getUsername());
-        }});
+        SysUserVo sysUserVo = new SysUserVo();
+
+        sysUserVo.setId(info.getId());
+        sysUserVo.setUsername(info.getUsername());
+
+        return R.ok(sysUserVo);
     }
+
+    @Post
+    @Mapping("/logout")
+    public R<?> logout() {
+        StpUtil.logout();
+        return R.ok();
+    }
+
 
 //
 //    @Db
