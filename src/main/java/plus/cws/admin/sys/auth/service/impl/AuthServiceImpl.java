@@ -19,8 +19,8 @@ public class AuthServiceImpl implements IAuthService {
     /**
      * 根据用户名密码登录
      *
-     * @param user
-     * @return
+     * @param user 用户信息
+     * @return token
      */
     @Override
     public String loginByPassword(SysUser user) {
@@ -40,5 +40,20 @@ public class AuthServiceImpl implements IAuthService {
         }else {
             throw new LoginException("账号或密码错误");
         }
+    }
+
+
+    /**
+     * @param userId 用户id
+     * @return 用户信息
+     */
+    @Override
+    public SysUser info(String userId) {
+
+        return sysUserBaseMapper.selectItem(mq->mq
+                .whereTrue()
+                .andEq(SysUser::getId,userId)
+                .limit(1)
+        );
     }
 }

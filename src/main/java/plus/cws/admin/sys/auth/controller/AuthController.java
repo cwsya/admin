@@ -10,6 +10,8 @@ import plus.cws.admin.common.entity.R;
 import plus.cws.admin.common.entity.dao.SysUser;
 import plus.cws.admin.sys.auth.service.IAuthService;
 
+import java.util.HashMap;
+
 @Mapping("/auth")
 @Controller
 public class AuthController {
@@ -32,6 +34,18 @@ public class AuthController {
     public R<?> isLogin() {
         return R.ok(StpUtil.isLogin());
     }
+
+
+    @Post
+    @Mapping("/info")
+    public R<?> info() {
+        SysUser info = authService.info(StpUtil.getLoginId().toString());
+        return R.ok(new SysUser(){{
+            setId(info.getId());
+            setUsername(info.getUsername());
+        }});
+    }
+
 //
 //    @Db
 //    private AuthMapper authMapper;
@@ -42,10 +56,10 @@ public class AuthController {
 //    @Inject
 //    private IVpnService vpnService;
 //
-//    @Post
-//    @Mapping("/test")
-//    public R<?> test(String userName,String password) {
-//        //Solon.context().getBeansMapOfType(IVpnService.class)
+    @Post
+    @Mapping("/test")
+    public R<?> test(String userName,String password) {
+        //Solon.context().getBeansMapOfType(IVpnService.class)
 //        System.out.println(vpnService.getVpnUrl());
 //        SysUser sysUsers = sysUserBaseMapper.selectItem(mq->mq
 //                .whereTrue()
@@ -58,9 +72,12 @@ public class AuthController {
 //            StpUtil.login(sysUsers.getId());
 //            return R.ok(StpUtil.getTokenInfo());
 //        }
-//
-//
-//        return R.error(ResultCodeEnum.ERROR_LOGIN);
-//    }
+
+
+        return R.ok(new HashMap<String,Object>(){{
+            put("userName",userName);
+            put("password",password);
+        }});
+    }
 
 }
